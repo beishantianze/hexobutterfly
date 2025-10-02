@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>PKU Geekgame 4th Write Up</title>
+      <link href="/PKU-Geekgame-4th-Write-Up/"/>
+      <url>/PKU-Geekgame-4th-Write-Up/</url>
+      
+        <content type="html"><![CDATA[<p>时隔一年的wp，谨记过往的高中生活，今年5th居然还没通知(lll￢ω￢)</p><p><a href="https://github.com/PKU-GeekGame/geekgame-4th">官方wp</a></p><h1 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h1><p>81个txt里慢慢找flag.</p><h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="清北问答"><a href="#清北问答" class="headerlink" title="清北问答"></a>清北问答</h2><p>Q1 直接搜索引擎里找就有照片 <code>贺清华大学建校100周年</code><br>Q2 同样搜索引擎，随便张图看看链接就行 <code>pku-lostangel.oss-cn-beijing.aliyuncs.com</code><br>Q3 Windows直接下一个德语键盘，数数 <code>12</code><br>Q4 看仓库package-lock.json <code>5.2.1</code> 嘿嘿<br>Q5 知らない 其实是有pactl命令的，但不知道，但确实查到了按立方来确定强度，但声学里的dB定义居然和正常定义（强度）不一样所以这道题gg了,差了一半</p><p>功率&#x2F;强度定义：<br>$$L_{dB}&#x3D;10 \log_{10} {\frac{P_1}{P_0}}$$</p><p>声学定义：<br>$$L_p&#x3D;20 \log_{10} {\frac{p_{rms}}{p_{ref}}}dB$$<br>其中$p_{ref}$为人类对声音能够感知的阈值下限，采用$20\mu Pa$<br>Q6 经典图寻，搜索七星公馆，慢慢看河桥找就行，没想到是从百度街景截的 <code>通州北关</code></p><h2 id="大模型模型虎视眈眈"><a href="#大模型模型虎视眈眈" class="headerlink" title="大模型模型虎视眈眈"></a>大模型模型虎视眈眈</h2><p>也算是顺应新形势的题了，凑一下prompt，Flag1简单凑一下200就行，Flag2后面构造让llm输出Flag1的prompt就行。</p><h2 id="TAS概论大作业"><a href="#TAS概论大作业" class="headerlink" title="TAS概论大作业"></a>TAS概论大作业</h2><p>直接找<a href="https://tasvideos.org/">录像</a>，转写一下FM2格式就行<br>Flag2也一样<br>Flag3是pwn，不会ACE</p><h2 id="新穷铁道"><a href="#新穷铁道" class="headerlink" title="新穷铁道"></a>新穷铁道</h2><p>看HEX就可以看到拼了一段文本，就是email格式eml，拆出来eml<br>有quoted-printable编码，找工具处理一下，得到</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The path twists and bends, like a pigpen that never ends.</span><br></pre></td></tr></table></figure><p>猪圈密码，经典了<br>Encoded Flag 部分是quoted-printable编码和base64的混合<br>跳着编的，拆开组起来就行</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jkcx&#123;UXLVCNwrnaXowZpKHDNFRDanGIAsvzkc&#125;</span><br></pre></td></tr></table></figure><p>很flag了，不知道后面班次表有什么用<br>拿二阶段提示了<br>神奇车次图为猪圈密码，还有神奇分隔符，太有脑洞了……<br>解出来<code>vigenerekey||ezcrypto</code><br>维吉尼亚密码,套一下密钥就行<br>flag{WISHYOuaplEasAnTJOURNEywITHerail}</p><h2 id="熙熙攘攘我们的天才吧"><a href="#熙熙攘攘我们的天才吧" class="headerlink" title="熙熙攘攘我们的天才吧"></a>熙熙攘攘我们的天才吧</h2><p>串流，有pcap和log 看看就知道是sunshine<br>Flag1找keyboard的keycode手抄ASCII，解出<br>Flag2拿wireshark解码看看UDP流量，找到对应端口知道RTP协议，懒得解码了<br>Flag3是音频，差不多，都要看源码，但猜猜也知道纯数字是DTMF编码，玩无线电玩的</p><h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="验证码"><a href="#验证码" class="headerlink" title="验证码"></a>验证码</h2><p>Flag1随便找个插件copy就行<br>Flag2还反调试，把breakpoints关了就行<br>把元素copy下来解析一下就行</p><p>没了，高中也就会点misc，不知道的还要用gpt查</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>快速算法模板</title>
       <link href="/%E5%BF%AB%E9%80%9F%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
       <url>/%E5%BF%AB%E9%80%9F%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/</url>
