@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>PKU Geekgame 4th Write Up(additional)</title>
+      <link href="/PKU-Geekgame-4th-Write-Up-additional/"/>
+      <url>/PKU-Geekgame-4th-Write-Up-additional/</url>
+      
+        <content type="html"><![CDATA[<p>此处存放未解出题以及对应wp和具体知识点</p><h1 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h1><h2 id="打破复杂度"><a href="#打破复杂度" class="headerlink" title="打破复杂度"></a>打破复杂度</h2><p>卡SPFA<br>构造便宜的纵边（1），变换横边的长度（100 ± 3*i），导致SPFA会不断松弛这两个边，通过这个棋盘图卡SPFA<br>卡Dinic<br>构造完全二部图<br>同时构造无穷大路径连接二部图（插 gadget）<br><img src="/v2-94c22382bcb47040873e3f9928b5d7b9_1440w.webp" alt="alt text"></p><h2 id="鉴定网络热门烂梗"><a href="#鉴定网络热门烂梗" class="headerlink" title="鉴定网络热门烂梗"></a>鉴定网络热门烂梗</h2><p>异或和打乱顺序都是可逆的，考察Datalab<br>要求<code>average_bit_count(prefix) &lt; 2.5</code>和特定字符<br>gzip 的编码方式LZ77 压缩把重复出现的字节+Huffman 编码产生最终结果<br>而LZ77 仅在输入包含三个字节以上的重复子串时才起作用<br>所以可以通过构造避免LZ77 的出现<br>剩下 Huffman 树，它可以是预先定义的 Fixed huffman code（blocktype &#x3D;&#x3D; 1），也可以是随数据变化的 Dynamic huffman code（blocktype &#x3D;&#x3D; 2）<br>但ASCII码也就6-7bits，Fixed Huffman Code 需要8bits，可以假定是Dynamic的<br>同时gzip的Huffman具体表示方法仅记录了树上每个字符的长度,如Fixed Huffman code如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static_huffman_bootstrap = [(0, 8), (144, 9), (256, 7), (280, 8), (288, -1)]</span><br></pre></td></tr></table></figure><p>256为EOF<br>可以直接构造000000-111110这 63 个字符，避免三个字节以上的重复子串，EOF，较短的输入以避免其他的Huffman树编码<br>Flag1 就是在前256构造popcount为0，1，2的字符（使得$popcount_{average}<em>6&#x2F;8&lt;2.5$）,为0有1个，为1有6个，为2有15个共22个，重复15遍，$15</em>22<em>6&#x2F;8$ 差不多256，平均 popcount 为 $(0</em>1 + 1<em>6 + 2</em>15)&#x2F;22&#x2F;6*8 &#x3D;&#x3D; 2.18$,剩下41个重复15次配平。<br>Flag2 类似，但开头要对齐比特边界，后面就是正常的目标字节串 → 二进制 → 6bit 切片 → 符号序列补齐频率 保证 Huffman 树稳定→加上 shuffle+XOR 逆操作 生成payload<br>png 也是用的 deflate 算法，那么就可以构造<a href="https://www.idontplaydarts.com/2012/06/encoding-web-shells-in-png-idat-chunks/">一个图片</a>，使得它编码成 png 之后会变成一段 webshell（可以用来出毒瘤套娃 web 题） mark一下</p><h2 id="随机数生成器"><a href="#随机数生成器" class="headerlink" title="随机数生成器"></a>随机数生成器</h2><p>Flag1：srand的参数是32位整数，暴力枚举</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PKU Geekgame 4th Write Up</title>
       <link href="/PKU-Geekgame-4th-Write-Up/"/>
       <url>/PKU-Geekgame-4th-Write-Up/</url>
