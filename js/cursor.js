@@ -171,15 +171,15 @@ class CrystalCursor {
         this.currentPointer = type;
         // 定义不同类型的光标样式映射
         const cursorMap = {
-            normal: 'url(/img/normal.cur), default',
-            link: 'url(/img/link.cur), pointer',
-            text: 'url(/img/text.cur), text',
-            move: 'url(/img/move.cur), move',
-            help: 'url(/img/help.cur), help',
-            unavailable: 'url(/img/unavailable.cur), not-allowed',
+            normal: 'url(/img/normal.ani), default',
+            link: 'url(/img/link.ani), pointer',
+            text: 'url(/img/text.ani), text',
+            move: 'url(/img/move.ani), move',
+            help: 'url(/img/help.ani), help',
+            unavailable: 'url(/img/unavailable.ani), not-allowed',
             busy: 'url(/img/busy.ani), wait',
             working: 'url(/img/working.ani), progress',
-            precision: 'url(/img/precision.cur), crosshair'
+            precision: 'url(/img/precision.ani), crosshair'
         };
 
         document.body.style.cursor = cursorMap[type] || cursorMap.normal;
